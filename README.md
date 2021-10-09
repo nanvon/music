@@ -1,5 +1,8 @@
 # music
 
+## Introduce 
+基于 Vue(2.6) + vuex + vue-router + vue-axios + element-ui 等开发的一款网页版音乐播放器，采用 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 提供的API。
+> 演示地址：https://music.nanvon.cn
 ## Project setup
 ```
 npm install
