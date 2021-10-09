@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view></router-view>
+    <side-bar>
+
+      <side-bar-item path="/discovery">
+        <div slot="item-text">发现音乐</div>
+      </side-bar-item>
+      <side-bar-item path="/songList">
+        <div slot="item-text">歌单</div>
+      </side-bar-item>
+    </side-bar>
   </div>
 </template>
 
+<script>
+import SideBar from "./components/sidebar/index";
+import SideBarItem from "./components/sidebar/SideBarItem";
+
+export default {
+  name: 'app',
+  components: {
+    SideBar, SideBarItem
+  }
+}
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  margin-top: 60px;
 }
 </style>

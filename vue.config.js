@@ -13,4 +13,5 @@ module.exports = {
             .set("views", resolve("src/views"))
             .set("api", resolve("src/api"))
     },
+    lintOnSave: false
 }
