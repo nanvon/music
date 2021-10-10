@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Discovery from '../views/discovery/index'
-import SongList from '../views/songList/index'
+//懒加载
+const Discovery = () => import('../views/discovery/index')
+const SongList = () => import('../views/songList/index')
 
 Vue.use(VueRouter)
 
