@@ -1,26 +1,21 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    <side-bar>
-
-      <side-bar-item path="/discovery">
-        <div slot="item-text">发现音乐</div>
-      </side-bar-item>
-      <side-bar-item path="/songList">
-        <div slot="item-text">歌单</div>
-      </side-bar-item>
-    </side-bar>
+    <main-side-bar/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import SideBar from "./components/sidebar/index";
-import SideBarItem from "./components/sidebar/SideBarItem";
+import MainSideBar from "components/MainSideBar/index";
+import SideBar from "components/MainSideBar/SideBar";
+import SideBarItem from "components/MainSideBar/SideBarItem";
 
 export default {
   name: 'app',
   components: {
-    SideBar, SideBarItem
+    MainSideBar, SideBar, SideBarItem
   }
 }
 </script>

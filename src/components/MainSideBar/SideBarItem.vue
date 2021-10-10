@@ -1,8 +1,7 @@
 <template>
   <div class="side-bar-item" @click="itemClick">
-    <div>
-      <slot name="item-text"></slot>
-    </div>
+    <slot name="item-icon"></slot>
+    <slot name="item-text"></slot>
   </div>
 </template>
 
@@ -25,6 +24,7 @@ export default {
 
 <style scoped>
 .side-bar-item {
+  display: flex;
   margin-top: 20px;
 }
 </style>

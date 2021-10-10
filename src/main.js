@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
 import './plugins/element.js'
+import "assets/fonts/index"; // 执行自动引入
 
 Vue.config.productionTip = false
 
