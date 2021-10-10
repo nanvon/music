@@ -9,13 +9,11 @@
 
 <script>
 import MainSideBar from "components/MainSideBar/index";
-import SideBar from "components/MainSideBar/SideBar";
-import SideBarItem from "components/MainSideBar/SideBarItem";
 
 export default {
   name: 'app',
   components: {
-    MainSideBar, SideBar, SideBarItem
+    MainSideBar
   }
 }
 </script>
@@ -26,7 +24,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

@@ -12,7 +12,7 @@ module.exports = {
             .set("components", resolve("src/components"))
             .set("views", resolve("src/views"))
             .set("api", resolve("src/api"))
-        
+
         //引入图标
         config.module.rule("svg").exclude.add(resolve("./src/assets/fonts/svg"));
         config.module.rule("icon").test(/\.svg$/)
@@ -23,5 +23,5 @@ module.exports = {
                 symbolId: 'icon-[name]'
             });
     },
-    lintOnSave: false
+    // lintOnSave: false
 }

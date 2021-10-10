@@ -8,6 +8,7 @@
         </div>
       </side-bar-item>
       <side-bar-item path="/songList">
+        <Icon name="bofangduilie" slot="item-icon"></Icon>
         <div slot="item-text">歌单</div>
       </side-bar-item>
     </side-bar>
