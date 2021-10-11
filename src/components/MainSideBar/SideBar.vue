@@ -68,14 +68,14 @@ export default {
     },
     handleCancel() {
       this.dialogVisible = false
-      this.reset()
+      // this.reset()
     },
     handleSubmit() {
       login(this.form.email, this.form.password).then((res) => {
-        console.log(res)
+        this.$store.commit('setUserInfo', res)
       })
       this.dialogVisible = false
-      this.reset()
+      // this.reset()
     }
   }
 }
