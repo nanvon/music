@@ -23,5 +23,5 @@ module.exports = {
                 symbolId: 'icon-[name]'
             });
     },
-    // lintOnSave: false
+    lintOnSave: false
 }

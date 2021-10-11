@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {Message, Notification} from "element-ui";
 
 export function request(config) {
     // 1、创建axios实例
@@ -17,7 +18,16 @@ export function request(config) {
 
     // 2.2、响应拦截
     instance.interceptors.response.use(res => {
-        return res.data
+        const code = res.data.code;
+        const msg = res.data.msg;
+        if (code === 200) {
+            return res.data
+        } else {
+            Notification({
+                message: msg,
+                type: 'error'
+            })
+        }
     }, err => {
         console.log(err)
     })
