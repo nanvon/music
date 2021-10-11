@@ -14,9 +14,13 @@
         <div>
           <Icon slot="item-icon" name="tinggeshiqu"></Icon>
         </div>
-        <div>
-          <span class="login" @click="dialogVisible = true">登录</span>|
-          <span class="register">注册</span>
+        <div v-if="!loginStatus">
+          <span class="login cursor" @click="dialogVisible = true">登录</span>|
+          <span class="register cursor" @click="handleRegister">注册</span>
+        </div>
+        <div v-else>
+          <div class="userNickName">{{ nickName }}</div>
+          <span class="logout cursor" @click="handleLogout">退出登录</span>
         </div>
       </div>
     </div>
@@ -30,11 +34,11 @@
       <div slot="title">
         登录<span class="title-info">（仅支持邮箱登录）</span>
       </div>
-      <el-form label-position="right" label-width="80px" :model="form">
-        <el-form-item label="邮箱:">
+      <el-form :model="form" ref="form" label-position="right" label-width="80px" :rules="rules">
+        <el-form-item label="邮箱:" prop="email">
           <el-input v-model="form.email" type="email" size="medium"></el-input>
         </el-form-item>
-        <el-form-item label="密码:">
+        <el-form-item label="密码:" prop="password">
           <el-input v-model="form.password" type="password" size="medium"></el-input>
         </el-form-item>
       </el-form>
@@ -48,7 +52,8 @@
 
 <script>
 import Icon from 'components/Icon/index';
-import {login} from 'api/account/login'
+import {login, logout} from 'api/account/login'
+import {Notification} from "element-ui";
 
 export default {
   name: "index",
@@ -57,28 +62,87 @@ export default {
   },
   data() {
     return {
+      //登录对话框
       dialogVisible: false,
+      //登录状态
+      loginStatus: false,
       form: {
-        email: 'hsuvon@163.com',
-        password: '<tN93f=*?)ozz8I7'
+        email: '',
+        password: ''
+      },
+      nickName: '',
+      rules: {
+        email: [
+          {required: true, message: '邮箱不能为空', trigger: 'blur'}
+        ],
+        password: [
+          {required: true, message: '密码不能为空', trigger: 'blur'}
+        ],
       }
     }
-  },
+  }
+  ,
+  created() {
+    this.loginStatus = this.$store.state.status
+    this.nickName = this.$store.state.profile.nickname
+  }
+  ,
   methods: {
     reset() {
       this.form.email = ''
       this.form.password = ''
-    },
+    }
+    ,
     handleCancel() {
       this.dialogVisible = false
-      // this.reset()
-    },
+      this.reset()
+    }
+    ,
     handleSubmit() {
-      login(this.form.email, this.form.password).then((res) => {
-        this.$store.commit('setUserInfo', res)
+      this.$refs["form"].validate((valid) => {
+            if (valid) {
+              login(this.form.email, this.form.password).then((res) => {
+                if (res.account !== undefined) {
+                  Notification({
+                    message: '登录成功',
+                    type: 'success'
+                  })
+                  this.loginStatus = true
+                  this.nickName = this.$store.state.profile.nickname
+                  this.$store.commit('setStatus')
+                  this.$store.commit('setUserInfo', res)
+                }
+              })
+              this.dialogVisible = false
+              this.reset()
+            }
+          }
+      )
+    }
+    ,
+    handleLogout() {
+      logout().then((res) => {
+        Notification({
+          message: '已退出登录',
+          type: 'success'
+        })
+        this.loginStatus = false
+        window.sessionStorage.clear()
+        this.$store.commit('setStatus', {
+          account: {},
+          token: '',
+          profile: {},
+          cookie: '',
+        })
+        window.location.reload()
       })
-      this.dialogVisible = false
-      // this.reset()
+    }
+    ,
+    handleRegister() {
+      Notification({
+        message: '请前往网易云音乐进行注册',
+        type: 'info'
+      })
     }
   }
 }
@@ -114,18 +178,28 @@ export default {
       flex-direction: column;
       align-self: center;
       position: absolute;
-      top: 85%;
+      top: 80%;
       color: $greyText;
       font-size: 12px;
 
+      .cursor {
+        cursor: pointer;
+      }
+
       .login {
         margin-right: 5px;
-        cursor: pointer;
       }
 
       .register {
         margin-left: 5px;
-        cursor: pointer;
+      }
+
+      .logout {
+        margin-top: 5px;
+      }
+
+      .userNickName {
+        font-weight: bold;
       }
     }
   }

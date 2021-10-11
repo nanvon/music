@@ -4,7 +4,7 @@
       <side-bar-item path="/discovery">
         <Icon name="yinleguan" slot="item-icon"></Icon>
         <div slot="item-text">
-          发现音乐
+          发现
         </div>
       </side-bar-item>
       <side-bar-item path="/songList">

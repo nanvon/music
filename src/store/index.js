@@ -7,12 +7,16 @@ Vue.use(Vuex)
 // 2、创建对象
 const store = new Vuex.Store({
     state: {
+        status: false,
         account: {},
         token: '',
         profile: {},
         cookie: '',
     },
     mutations: {
+        setStatus(state) {
+            state.status = !state.status;
+        },
         setUserInfo(state, userInfo) {
             state.account = userInfo.account;
             state.token = userInfo.token;
