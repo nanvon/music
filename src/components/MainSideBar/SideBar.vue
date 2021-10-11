@@ -58,7 +58,10 @@ export default {
   data() {
     return {
       dialogVisible: false,
-      form: {}
+      form: {
+        email: 'hsuvon@163.com',
+        password: '<tN93f=*?)ozz8I7'
+      }
     }
   },
   methods: {
