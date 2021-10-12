@@ -7,13 +7,15 @@ export function login(email, password) {
         params: {
             email,
             password
-        }
+        },
+        withCredentials: true
     })
 }
 
 export function logout() {
     return request({
         url: '/logout',
-        method: 'GET'
+        method: 'GET',
+        withCredentials: true
     })
 }

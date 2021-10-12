@@ -108,9 +108,9 @@ export default {
                     type: 'success'
                   })
                   this.loginStatus = true
-                  this.nickName = this.$store.state.profile.nickname
                   this.$store.commit('setStatus')
                   this.$store.commit('setUserInfo', res)
+                  this.nickName = this.$store.state.profile.nickname
                 }
               })
               this.dialogVisible = false
