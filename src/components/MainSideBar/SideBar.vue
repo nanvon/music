@@ -102,7 +102,7 @@ export default {
       this.$refs["form"].validate((valid) => {
             if (valid) {
               login(this.form.email, this.form.password).then((res) => {
-                if (res.account !== undefined) {
+                if (res.code === 200) {
                   Notification({
                     message: '登录成功',
                     type: 'success'
