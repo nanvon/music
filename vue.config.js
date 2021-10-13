@@ -23,5 +23,12 @@ module.exports = {
                 symbolId: 'icon-[name]'
             });
     },
-    lintOnSave: false
+    lintOnSave: false,
+    css: {
+        loaderOptions: {
+            sass: {
+                prependData: `@import "./src/assets/styles/common";@import "./src/assets/styles/variables";`,
+            },
+        },
+    },
 }
