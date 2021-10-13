@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <div class="side-bar">
-      <div class="logo"><i class="el-icon-s-promotion"></i>Music</div>
+      <div class="logo"><i class="el-icon-s-opportunity"></i>Music</div>
       <el-input
           class="search"
           placeholder="搜索"
@@ -159,8 +159,9 @@ export default {
     position: fixed;
     left: 0;
     top: 0;
-    height: 100%;
-    width: 10%;
+    height: 100vh;
+    width: 10vw;
+    min-width: 80px;
     background-color: $background;
     padding: 20px 40px;
 
