@@ -1,19 +1,25 @@
 <template>
   <div id="app">
     <main-side-bar/>
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
+    <div class="main-content">
+      <player/>
+      <keep-alive>
+        <div class="content">
+          <router-view/>
+        </div>
+      </keep-alive>
+    </div>
   </div>
 </template>
 
 <script>
 import MainSideBar from "components/MainSideBar/index";
+import Player from "components/Player/index";
 
 export default {
   name: 'app',
   components: {
-    MainSideBar
+    MainSideBar, Player
   },
   created() {
     // 在页面加载时读取sessionStorage
@@ -34,5 +40,17 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  display: flex;
+  margin: 0;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content {
+
 }
 </style>
