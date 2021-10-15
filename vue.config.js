@@ -26,7 +26,7 @@ module.exports = {
     lintOnSave: false,
     css: {
         loaderOptions: {
-            sass: {
+            scss: {
                 prependData: `@import "./src/assets/styles/common";@import "./src/assets/styles/variables";`,
             },
         },
