@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="app-container">
     <side-bar>
       <side-bar-item path="/discovery">
-        <Icon name="yinleguan" slot="item-icon"></Icon>
+        <Icon name="yinleguan" slot="item-icon" color="#25c37a"></Icon>
         <div slot="item-text">
           发现
         </div>
       </side-bar-item>
       <side-bar-item path="/songList">
-        <Icon name="bofangduilie" slot="item-icon"></Icon>
+        <Icon name="bofangduilie" slot="item-icon" color="#25c37a"></Icon>
         <div slot="item-text">歌单</div>
       </side-bar-item>
     </side-bar>
@@ -28,6 +28,12 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.app-container {
+  height: 100vh;
+  width: 16vw;
+  min-width: 120px;
+  background-color: $background;
+  position: fixed;
+}
 </style>

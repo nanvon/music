@@ -12,7 +12,7 @@
       <slot></slot>
       <div class="mine">
         <div>
-          <Icon slot="item-icon" name="tinggeshiqu"></Icon>
+          <Icon slot="item-icon" name="tinggeshiqu" color="#25c37a"></Icon>
         </div>
         <div v-if="!loginStatus">
           <span class="login cursor" @click="dialogVisible = true">登录</span>|
@@ -149,18 +149,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "src/assets/styles/variables.scss";
-
 .app-container {
   .side-bar {
     display: flex;
     flex-direction: column;
     align-items: start;
-    height: 100vh;
-    width: 10vw;
-    min-width: 80px;
-    background-color: $background;
-    padding: 20px 40px;
+    padding: 20px 20px;
 
     .logo {
       font-size: 24px;
@@ -176,7 +170,7 @@ export default {
       flex-direction: column;
       align-self: center;
       position: absolute;
-      top: 80%;
+      top: 85%;
       color: $greyText;
       font-size: 12px;
 
