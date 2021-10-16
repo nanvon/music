@@ -1,7 +1,5 @@
 <template>
-  <div>
-    i am song list
-  </div>
+  <div class="app-container"></div>
 </template>
 
 <script>
@@ -10,6 +8,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
