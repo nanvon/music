@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div>
     <el-carousel :interval="4000" type="card" height="200px">
       <el-carousel-item v-for="item in banners" :key="item.targetId">
         <img :src="item" alt="">
@@ -38,13 +38,5 @@ export default {
 <style lang="scss" scoped>
 img {
   height: 200px;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n+1) {
-  background-color: #d3dce6;
 }
 </style>
