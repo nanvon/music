@@ -16,8 +16,6 @@ export default {
   data() {
     return {
       banners: []
-
-
     }
   },
   created() {

@@ -2,12 +2,16 @@
   <div class="app-container">
     <banner/>
     <div class="personalized">
-      <song-card v-for="item in 10" class="card">
-        <img slot="card-img"
-             src="https://p1.music.126.net/PKLxFEoDr-USCTRKVwmkpw==/109951166515727569.jpg?param=180y180" alt=""
-        >
-        <div slot="card-title">旋律叙事簿.月有月的情怀,诉世事少有圆满</div>
-      </song-card>
+      <div class="card-title">推荐歌单</div>
+      <div class="card-content">
+        <song-card v-for="item in personalizedList">
+          <img slot="card-img"
+               :src="item.picUrl+'?param=180y180'"
+               :alt="item.copywriter"
+          >
+          <div slot="card-title">{{ item.name }}</div>
+        </song-card>
+      </div>
     </div>
   </div>
 </template>
@@ -15,11 +19,27 @@
 <script>
 import Banner from 'components/Banner';
 import SongCard from 'components/SongCard';
+import {getPersonalized} from 'api/discovery'
 
 export default {
   name: "index",
   components: {
     Banner, SongCard
+  },
+  data() {
+    return {
+      personalizedList: []
+    }
+  },
+  created() {
+    this.getPersonalizedList();
+  },
+  methods: {
+    getPersonalizedList() {
+      getPersonalized().then(res => {
+        this.personalizedList = res.result;
+      })
+    }
   }
 }
 </script>
@@ -29,12 +49,17 @@ export default {
 
   .personalized {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
+    flex-direction: column;
 
-    .card {
-      flex: 1;
-      width: 75%;
+    .card-title {
+      align-self: start;
+      margin-bottom: 10px;
+    }
+
+    .card-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
   }
 }

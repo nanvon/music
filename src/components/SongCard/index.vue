@@ -26,9 +26,7 @@ export default {
   .title {
     width: 180px;
     font-size: 0.8em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    text-align: left;
   }
 }
 </style>

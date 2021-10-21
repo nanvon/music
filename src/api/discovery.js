@@ -7,3 +7,11 @@ export function getBanners() {
         withCredentials: true
     })
 }
+
+export function getPersonalized() {
+    return request({
+        url: '/personalized?limit=10',
+        method: 'GET',
+        withCredentials: true
+    })
+}
