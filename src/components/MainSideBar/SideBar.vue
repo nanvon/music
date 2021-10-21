@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="side-bar-container">
     <div class="side-bar">
       <div class="logo"><i class="el-icon-s-opportunity"></i>Music</div>
       <el-input
@@ -149,7 +149,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-container {
+.side-bar-container {
   .side-bar {
     display: flex;
     flex-direction: column;

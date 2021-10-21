@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="main-side-bar-container">
     <side-bar>
       <side-bar-item path="/discovery">
         <Icon name="yinleguan" slot="item-icon" color="#25c37a"></Icon>
@@ -29,11 +29,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-container {
-  height: 100vh;
-  width: 16vw;
-  min-width: 120px;
+.main-side-bar-container {
+  height: 100%;
+  border-right: $borderColor solid 1px;
   background-color: $background;
-  position: fixed;
 }
 </style>

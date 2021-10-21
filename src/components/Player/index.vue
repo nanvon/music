@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="player-container">
     <div class="controller-left">
       <Icon slot="item-icon" name="shangyiqu" color="#8f8f8f"></Icon>
       <Icon v-if="playStatus" slot="item-icon" name="bofangzhong" color="#8f8f8f"
@@ -41,17 +41,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-container {
+.player-container {
   display: flex;
   align-items: center;
-  width: 84vw;
-  min-width: 950px;
-  height: 7vh;
-  position: fixed;
-  top: 0;
-  left: 16vw;
+  height: 50px;
+  min-width: 700px;
   background-color: #fff;
-  border-bottom: $borderColor solid 1px;
+  border-top: $borderColor solid 1px;
 
   .controller-left {
     flex: 1;

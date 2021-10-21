@@ -1,25 +1,16 @@
 <template>
   <div id="app">
-    <main-side-bar/>
-    <div class="main-content">
-      <player/>
-      <keep-alive>
-        <div class="content">
-          <router-view/>
-        </div>
-      </keep-alive>
-    </div>
+    <view-layout/>
   </div>
 </template>
 
 <script>
-import MainSideBar from "components/MainSideBar/index";
-import Player from "components/Player/index";
+import ViewLayout from 'views/index'
 
 export default {
   name: 'app',
   components: {
-    MainSideBar, Player
+    ViewLayout
   },
   created() {
     // 在页面加载时读取sessionStorage
@@ -39,20 +30,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  display: flex;
-  margin: 0;
-  min-width: 1000px;
 }
 
-.main-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-left: 16vw;
-}
-
-.content {
-  margin-top: 7vh;
-}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="banner-container">
     <el-carousel :interval="4000" type="card" height="200px">
       <el-carousel-item v-for="item in banners" :key="item.targetId">
         <img :src="item" alt="">
@@ -36,6 +36,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.app-container {
+  overflow: hidden;
+}
+
 img {
   height: 200px;
 }
