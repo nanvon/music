@@ -7,7 +7,7 @@
         <square-card v-for="item in personalizedList">
           <img slot="card-img"
                :src="item.picUrl+'?param=180y180'"
-               :alt="item.copywriter"
+               alt="推荐歌单"
           >
           <div slot="card-title">{{ item.name }}</div>
         </square-card>
@@ -16,13 +16,13 @@
     <div class="new-song">
       <div class="new-song-title">最新音乐</div>
       <div class="new-song-content">
-        <short-rectangle-card v-for="item in 10">
+        <short-rectangle-card v-for="item in newSongList">
           <div slot="card-number"><span v-if="songCardNumber<=9">0</span>{{ songCardNumber++ }}</div>
           <img slot="card-img"
-               src="https://p2.music.126.net/i-SXaH6t1qpY8KqXyO3D1g==/109951166411177781.jpg?param=60y60"
-               alt="">
-          <div slot="card-song-name">呼吸我呼吸的</div>
-          <div slot="card-song-singer">刘瑾睿</div>
+               :src="item.picUrl+'?param=60y60'"
+               alt="最新音乐">
+          <div slot="card-song-name">{{ item.name }}</div>
+          <div slot="card-song-singer">{{ item.song.artists[0].name }}</div>
         </short-rectangle-card>
       </div>
     </div>
@@ -33,7 +33,7 @@
 import Banner from 'components/Banner';
 import SquareCard from 'components/SongCard/Square';
 import ShortRectangleCard from 'components/SongCard/ShortRectangle';
-import {getPersonalized} from 'api/discovery'
+import {getPersonalized, getNewSong} from 'api/discovery'
 
 export default {
   name: "index",
@@ -43,16 +43,25 @@ export default {
   data() {
     return {
       personalizedList: [],
+      newSongList: [],
       songCardNumber: 1,
     }
   },
   created() {
     this.getPersonalizedList();
+    this.getSong();
   },
   methods: {
     getPersonalizedList() {
       getPersonalized().then(res => {
         this.personalizedList = res.result;
+      })
+    },
+    getSong() {
+      getNewSong().then(res => {
+        console.log(res.result);
+        this.newSongList = res.result;
+        console.log(this.newSongList[0].song.artists.name)
       })
     }
   }
