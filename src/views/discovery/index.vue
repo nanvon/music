@@ -16,13 +16,13 @@
     <div class="new-song">
       <div class="new-song-title">最新音乐</div>
       <div class="new-song-content">
-        <short-rectangle-card v-for="item in newSongList">
+        <short-rectangle-card v-for="i in newSongList">
           <div slot="card-number"><span v-if="songCardNumber<=9">0</span>{{ songCardNumber++ }}</div>
           <img slot="card-img"
-               :src="item.picUrl+'?param=60y60'"
+               :src="i.picUrl+'?param=60y60'"
                alt="最新音乐">
-          <div slot="card-song-name">{{ item.name }}</div>
-          <div slot="card-song-singer">{{ item.song.artists[0].name }}</div>
+          <div slot="card-song-name">{{ i.name }}</div>
+          <div slot="card-song-singer">{{ i.song.artists[0].name }}</div>
         </short-rectangle-card>
       </div>
     </div>
@@ -59,9 +59,7 @@ export default {
     },
     getSong() {
       getNewSong().then(res => {
-        console.log(res.result);
         this.newSongList = res.result;
-        console.log(this.newSongList[0].song.artists.name)
       })
     }
   }
