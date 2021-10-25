@@ -4,7 +4,7 @@
     <div class="personalized">
       <div class="personalized-title">推荐歌单</div>
       <div class="personalized-content">
-        <square-card v-for="item in personalizedList">
+        <square-card v-for="item in personalizedList" :key="item.name">
           <img slot="card-img"
                :src="item.picUrl+'?param=180y180'"
                alt="推荐歌单"
@@ -16,7 +16,7 @@
     <div class="new-song">
       <div class="new-song-title">最新音乐</div>
       <div class="new-song-content">
-        <short-rectangle-card v-for="i in newSongList">
+        <short-rectangle-card v-for="i of newSongList" :key="i.name">
           <div slot="card-number"><span v-if="songCardNumber<=9">0</span>{{ songCardNumber++ }}</div>
           <img slot="card-img"
                :src="i.picUrl+'?param=60y60'"

@@ -21,7 +21,7 @@ export function getPersonalized() {
 //最新音乐
 export function getNewSong() {
     return request({
-        url: '/personalized/newsong?limit=10',
+        url: '/personalized/newsong',
         method: 'GET',
         withCredentials: true
     })
