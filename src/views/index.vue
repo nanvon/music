@@ -58,7 +58,7 @@ export default {
       flex-direction: column;
       align-items: center;
       margin-top: 10px;
-      margin-bottom: 60px;
+      margin-bottom: 70px;
 
       .router-view {
         width: 1000px;
