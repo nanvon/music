@@ -5,10 +5,11 @@
 基于 Vue(2.6) + vuex + vue-router + vue-axios + element-ui
 等开发的一款网页版音乐播放器，采用 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi) 提供的API。
 
-![Gif：](src/assets/gif1.gif)
-![Gif：](src/assets/gif2.gif)
-https://img.nanvon.cn/2021-1122-22:03:48:243.gif
-https://img.nanvon.cn/2021-1122-22:03:48:243.gif
+![Gif：](src/assets/gif1.gif)  
+[查看效果图1（网络不佳时请点击）](https://img.nanvon.cn/2021-1122-22:03:48:243.gif)
+
+![Gif：](src/assets/gif2.gif)  
+[查看效果图2（网络不佳时请点击）](https://img.nanvon.cn/2021-1122-22:03:48:243.gif)
 
 - [x] 登录
 - [x] 发现页
