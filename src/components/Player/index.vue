@@ -154,6 +154,7 @@ export default {
       }
 
       .song-singer {
+        margin-top: 5px;
         font-size: 12px;
         color: $greyText;
       }
