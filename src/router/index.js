@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 //懒加载
 const Discovery = () => import('../views/discovery/index')
 const SongList = () => import('../views/songList/index')
+const NewSong = () => import('../views/newSong/index')
 
 Vue.use(VueRouter)
 
@@ -19,6 +20,10 @@ const routes = [
     {
         path: "/songList",
         component: SongList
+    },
+    {
+        path: "/newSong",
+        component: NewSong
     }
 ]
 
