@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .card-item {
+  cursor: pointer;
   display: flex;
   align-items: center;
   height: 80px;
