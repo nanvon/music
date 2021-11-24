@@ -15,9 +15,9 @@
     <div class="song-album">
       <slot name="song-album"></slot>
     </div>
-    <div class="song-time">
-      <slot name="song-time"></slot>
-    </div>
+    <!--    <div class="song-time">-->
+    <!--      <slot name="song-time"></slot>-->
+    <!--    </div>-->
   </div>
 </template>
 
@@ -36,6 +36,8 @@ export default {
   align-items: center;
   height: 60px;
   cursor: pointer;
+  text-align: left;
+  padding-left: 20px;
 
   .serial-number {
     flex: 1;

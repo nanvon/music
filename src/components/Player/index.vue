@@ -94,15 +94,15 @@ export default {
     },
     // 当timeupdate事件大概每秒一次，用来更新音频流的当前播放时间
     onTimeupdate(res) {
-      console.log('timeupdate')
-      console.log(res)
+      // console.log('timeupdate')
+      // console.log(res)
       this.currentTime = res.target.currentTime
     },
     // 当加载语音流元数据完成后，会触发该事件的回调函数
     // 语音元数据主要是语音的长度之类的数据
     onLoadedmetadata(res) {
-      console.log('loadedmetadata')
-      console.log(res)
+      // console.log('loadedmetadata')
+      // console.log(res)
       this.maxTime = parseInt(res.target.duration)
     }
   },

@@ -34,6 +34,7 @@ export default {
 .view-container {
   text-align: center;
   margin: 0;
+  font-size: 14px;
 
   .main-side-bar {
     position: fixed;
