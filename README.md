@@ -1,5 +1,8 @@
 # music
 
+![stars](https://img.shields.io/github/stars/nanvon/music)
+![license](https://img.shields.io/github/license/nanvon/music)
+
 ## Introduce
 
 基于 Vue(2.6) + vuex + vue-router + vue-axios + element-ui
