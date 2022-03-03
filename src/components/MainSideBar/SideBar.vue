@@ -1,7 +1,7 @@
 <template>
   <div class="side-bar-container">
     <div class="side-bar">
-      <div class="logo"><i class="el-icon-s-opportunity"></i>Music</div>
+      <div class="logo">Music</div>
       <el-input
           class="search"
           placeholder="搜索"

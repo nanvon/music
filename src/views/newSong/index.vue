@@ -1,14 +1,14 @@
 <template>
   <div class="app-container">
     <div class="container-title"><span>最新音乐推荐</span></div>
-    <long-song-card v-for="i of newSongList" :key="i">
+    <long-song-card v-for="i of newSongList" :key="i.id">
       <div slot="serial-number"><span v-if="songCardNumber<=9">0</span>{{ songCardNumber++ }}</div>
       <img slot="song-image"
-           :src="i.album.picUrl+'?param=55y55'"
+           :src="i.picUrl+'?param=55y55'"
            alt="最新音乐">
       <div slot="song-name">{{ i.name }}</div>
-      <div slot="song-singer">{{ i.artists[0].name }}</div>
-      <div slot="song-album">{{ i.album.name }}</div>
+      <div slot="song-singer">{{ i.artistsText }}</div>
+      <div slot="song-album">{{ i.albumName }}</div>
       <!--      <div slot="song-time">04:20</div>-->
     </long-song-card>
   </div>
@@ -35,13 +35,25 @@ export default {
   methods: {
     getSong() {
       getNewSong().then(res => {
-        this.newSongList = res.data;
-        console.log(this.newSongList[4].name);
-        console.log(this.newSongList[4].artists[0].name);
-        console.log(this.newSongList[4].album.name);
-        console.log(this.newSongList[4].album.picUrl);
-        console.log(this.newSongList)
+        this.newSongList = res.data.map(song => {
+          const {id, name, duration, album: {picUrl, name: albumName}, artists} = song;
+          return {
+            id,
+            name,
+            duration: duration / 1000,
+            picUrl,
+            albumName,
+            url: this.getSongPlayUrl(id),
+            artistsText: this.getAritistsText(artists)
+          }
+        })
       })
+    },
+    getAritistsText(artists) {
+      return artists.map(item => item.name).join('/')
+    },
+    getSongPlayUrl(id) {
+      return `http://music.163.com/song/media/outer/url?id=${id}.mp3`
     }
   }
 }

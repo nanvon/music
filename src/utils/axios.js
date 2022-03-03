@@ -4,7 +4,7 @@ import {Message, Notification} from "element-ui";
 export function request(config) {
     // 1、创建axios实例
     const instance = axios.create({
-        baseURL: 'https://music.nanvon.cn/api',
+        baseURL: 'http://localhost:3000/',
         timeout: 15000
     })
 

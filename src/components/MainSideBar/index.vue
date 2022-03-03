@@ -2,17 +2,17 @@
   <div class="main-side-bar-container">
     <side-bar>
       <side-bar-item path="/discovery">
-        <Icon slot="item-icon" color="#25c37a" name="yinleguan"></Icon>
+        <Icon slot="item-icon" color="#6ca5fe" name="yinleguan"></Icon>
         <div slot="item-text">
           发现音乐
         </div>
       </side-bar-item>
       <side-bar-item path="/newSong">
-        <Icon slot="item-icon" color="#25c37a" name="bofangliebiao"></Icon>
+        <Icon slot="item-icon" color="#6ca5fe" name="bofangliebiao"></Icon>
         <div slot="item-text">最新歌曲</div>
       </side-bar-item>
       <side-bar-item path="/songList">
-        <Icon slot="item-icon" color="#25c37a" name="bofangduilie"></Icon>
+        <Icon slot="item-icon" color="#6ca5fe" name="bofangduilie"></Icon>
         <div slot="item-text">推荐歌单</div>
       </side-bar-item>
     </side-bar>
